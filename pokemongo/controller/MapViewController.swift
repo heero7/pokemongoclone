@@ -44,6 +44,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             updateCount += 1
         } else {
+            // stops updating the location
+            // saves a little battery
             manager.stopUpdatingLocation()
         }
     }
