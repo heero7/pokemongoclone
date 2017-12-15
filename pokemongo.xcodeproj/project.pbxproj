@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		81AFE1221FE3742C005FA2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1211FE3742C005FA2DF /* AppDelegate.swift */; };
-		81AFE1241FE3742C005FA2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1231FE3742C005FA2DF /* ViewController.swift */; };
 		81AFE1271FE3742C005FA2DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AFE1251FE3742C005FA2DF /* Main.storyboard */; };
 		81AFE12A1FE3742C005FA2DF /* pokemongo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1281FE3742C005FA2DF /* pokemongo.xcdatamodeld */; };
 		81AFE12C1FE3742C005FA2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81AFE12B1FE3742C005FA2DF /* Assets.xcassets */; };
 		81AFE12F1FE3742C005FA2DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AFE12D1FE3742C005FA2DF /* LaunchScreen.storyboard */; };
+		81AFE1381FE3787F005FA2DF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1371FE3787F005FA2DF /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81AFE11E1FE3742C005FA2DF /* pokemongo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemongo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AFE1211FE3742C005FA2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81AFE1231FE3742C005FA2DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81AFE1261FE3742C005FA2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81AFE1291FE3742C005FA2DF /* pokemongo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pokemongo.xcdatamodel; sourceTree = "<group>"; };
 		81AFE12B1FE3742C005FA2DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81AFE12E1FE3742C005FA2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81AFE1301FE3742C005FA2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81AFE1371FE3787F005FA2DF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +56,8 @@
 		81AFE1201FE3742C005FA2DF /* pokemongo */ = {
 			isa = PBXGroup;
 			children = (
+				81AFE1361FE37856005FA2DF /* controller */,
 				81AFE1211FE3742C005FA2DF /* AppDelegate.swift */,
-				81AFE1231FE3742C005FA2DF /* ViewController.swift */,
 				81AFE1251FE3742C005FA2DF /* Main.storyboard */,
 				81AFE12B1FE3742C005FA2DF /* Assets.xcassets */,
 				81AFE12D1FE3742C005FA2DF /* LaunchScreen.storyboard */,
@@ -65,6 +65,14 @@
 				81AFE1281FE3742C005FA2DF /* pokemongo.xcdatamodeld */,
 			);
 			path = pokemongo;
+			sourceTree = "<group>";
+		};
+		81AFE1361FE37856005FA2DF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				81AFE1371FE3787F005FA2DF /* MapViewController.swift */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AFE12A1FE3742C005FA2DF /* pokemongo.xcdatamodeld in Sources */,
-				81AFE1241FE3742C005FA2DF /* ViewController.swift in Sources */,
+				81AFE1381FE3787F005FA2DF /* MapViewController.swift in Sources */,
 				81AFE1221FE3742C005FA2DF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
