@@ -21,10 +21,23 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="28e-YR-pmi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2h-O0-dfw">
+                                <rect key="frame" x="315" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="dLv-bk-JyP"/>
+                                    <constraint firstAttribute="height" constant="50" id="x4d-z2-vkR"/>
+                                </constraints>
+                                <state key="normal" image="compass"/>
+                                <connections>
+                                    <action selector="centerUserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aok-0X-h6z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="y2h-O0-dfw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="10" id="Aev-dH-DeS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="28e-YR-pmi" secondAttribute="bottom" id="Msy-M1-Syn"/>
+                            <constraint firstAttribute="trailing" secondItem="y2h-O0-dfw" secondAttribute="trailing" constant="10" id="Nqx-4H-luI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="28e-YR-pmi" secondAttribute="trailing" id="i4w-8Y-hfq"/>
                             <constraint firstItem="28e-YR-pmi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qSM-x3-ISh"/>
                             <constraint firstItem="28e-YR-pmi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="uPD-0R-LBE"/>
@@ -40,4 +53,7 @@
             <point key="canvasLocation" x="-98.400000000000006" y="118.29085457271366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="compass" width="512" height="512"/>
+    </resources>
 </document>

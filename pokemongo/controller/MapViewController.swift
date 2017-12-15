@@ -46,8 +46,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             updateCount += 1
         }
-        
-        
-        
     }
+    
+    @IBAction func centerUserLocation(_ sender: Any) {
+    }
+    
 }
