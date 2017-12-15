@@ -35,20 +35,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        // play with this count to get the right location
-        
         if updateCount < 3 {
             
             if let coordinate = manager.location?.coordinate {
                 let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
-                mapView.setRegion(region, animated: false)
+                mapView.setRegion(region, animated: true)
             }
             
             updateCount += 1
+        } else {
+            manager.stopUpdatingLocation()
         }
     }
     
     @IBAction func centerUserLocation(_ sender: Any) {
+        if let coordinate = manager.location?.coordinate {
+            let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+            mapView.setRegion(region, animated: true)
+        }
     }
-    
 }
