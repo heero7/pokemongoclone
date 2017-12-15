@@ -17,12 +17,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         manager.delegate = self
-        manager.requestWhenInUseAuthorization()
-        
-        mapView.showsUserLocation = true
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            // realize that the authorization is only in use
+            mapView.showsUserLocation = true
+        } else {
+            manager.requestWhenInUseAuthorization()
+        }
     }
 
 
