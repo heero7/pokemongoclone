@@ -19,6 +19,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getAllPokemon()
+        
         manager.delegate = self
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             // realize that the authorization is only in use
