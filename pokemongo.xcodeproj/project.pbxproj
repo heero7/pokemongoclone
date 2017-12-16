@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8184ABE61FE4E537008B89D3 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8184ABE51FE4E537008B89D3 /* PokedexViewController.swift */; };
 		81AFE1221FE3742C005FA2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1211FE3742C005FA2DF /* AppDelegate.swift */; };
 		81AFE1271FE3742C005FA2DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AFE1251FE3742C005FA2DF /* Main.storyboard */; };
 		81AFE12A1FE3742C005FA2DF /* pokemongo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE1281FE3742C005FA2DF /* pokemongo.xcdatamodeld */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8184ABE51FE4E537008B89D3 /* PokedexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		81AFE11E1FE3742C005FA2DF /* pokemongo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemongo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AFE1211FE3742C005FA2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81AFE1261FE3742C005FA2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				81AFE1371FE3787F005FA2DF /* MapViewController.swift */,
+				8184ABE51FE4E537008B89D3 /* PokedexViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AFE12A1FE3742C005FA2DF /* pokemongo.xcdatamodeld in Sources */,
+				8184ABE61FE4E537008B89D3 /* PokedexViewController.swift in Sources */,
 				81AFE1381FE3787F005FA2DF /* MapViewController.swift in Sources */,
 				81AFE1221FE3742C005FA2DF /* AppDelegate.swift in Sources */,
 			);
