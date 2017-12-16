@@ -95,6 +95,59 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+            if view.annotation is MKUserLocation {
+                // we're selecting the trainer, we don't do anything currently
+            } else {
+                if let center = manager.location?.coordinate {
+                    if let pokemonLocationCenter = view.annotation?.coordinate {
+                        let region = MKCoordinateRegionMakeWithDistance(pokemonLocationCenter, 200, 200)
+                        mapView.setRegion(region, animated: false)
+                        
+                        if MKMapRectContainsPoint(mapView.visibleMapRect, MKMapPointForCoordinate(center)) {
+                            // user can catch
+                            if let pokeAnn = view.annotation as? PokemonAnnotation {
+                                pokeAnn.pokemon.isCaught = true
+                                if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                                    try? context.save()
+                                    if let name = pokeAnn.pokemon.name {
+                                        let alertVC = UIAlertController(title: "Congratulations", message: "You caught a \(name)", preferredStyle: .alert)
+                                        let pokeDexAction = UIAlertAction(title: "Pokedex", style: .default, handler: { (action) in
+                                            self.performSegue(withIdentifier: "moveToPokedex", sender: nil)
+                                            
+                                        })
+                                        
+                                        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                                            alertVC.dismiss(animated: true, completion: nil)
+                                        })
+                                        
+                                        alertVC.addAction(pokeDexAction)
+                                        alertVC.addAction(okAction)
+                                        present(alertVC, animated: true, completion: nil)
+                                    }
+                                    
+                                }
+                            }
+                        } else {
+                            // user can't catch
+                            let alertVC = UIAlertController(title: "Out of Range", message: "You're out of range.. get closer!", preferredStyle: .alert)
+                           
+                            
+                            let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                                alertVC.dismiss(animated: true, completion: nil)
+                            })
+                            
+                            alertVC.addAction(okAction)
+                            present(alertVC, animated: true, completion: nil)
+                        }
+                    }
+                    
+            }
+        }
+    }
+    
     @IBAction func centerUserLocation(_ sender: Any) {
         if let coordinate = manager.location?.coordinate {
             let region = MKCoordinateRegionMakeWithDistance(coordinate, 400, 400)
