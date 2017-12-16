@@ -32,7 +32,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
             if let center = self.manager.location?.coordinate {
                 let annotation = MKPointAnnotation()
-                annotation.coordinate = center
+                var annoCord = center
+                annoCord.latitude += self.generateRandomCoordinates()
+                annoCord.longitude += self.generateRandomCoordinates()
+                annotation.coordinate = annoCord
                 self.mapView.addAnnotation(annotation)
             }
         }
@@ -63,5 +66,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let region = MKCoordinateRegionMakeWithDistance(coordinate, 400, 400)
             mapView.setRegion(region, animated: true)
         }
+    }
+    
+    private func generateRandomCoordinates() -> Double {
+        return (Double(arc4random_uniform(200)) - 100.0)/50000.0
     }
 }
