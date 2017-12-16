@@ -59,7 +59,7 @@ func getCaughtOrUnCaughtPokemon(caught: Bool) -> [Pokemon] {
        
         let fetchRequest = Pokemon.fetchRequest() as NSFetchRequest<Pokemon>
         // find any pokemon that caught is equal to true
-        fetchRequest.predicate = NSPredicate(format: "caught == %@", caught as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "isCaught == %@", caught as CVarArg)
         if let pocketMonsters = try? context.fetch(fetchRequest) {
             return pocketMonsters
         }
