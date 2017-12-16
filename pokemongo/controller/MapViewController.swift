@@ -28,6 +28,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             manager.requestWhenInUseAuthorization()
         }
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            if let center = self.manager.location?.coordinate {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = center
+                self.mapView.addAnnotation(annotation)
+            }
+        }
     }
 
     /*
@@ -38,7 +46,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if updateCount < 3 {
             
             if let coordinate = manager.location?.coordinate {
-                let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+                let region = MKCoordinateRegionMakeWithDistance(coordinate, 400, 400)
                 mapView.setRegion(region, animated: true)
             }
             
@@ -52,7 +60,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func centerUserLocation(_ sender: Any) {
         if let coordinate = manager.location?.coordinate {
-            let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+            let region = MKCoordinateRegionMakeWithDistance(coordinate, 400, 400)
             mapView.setRegion(region, animated: true)
         }
     }
