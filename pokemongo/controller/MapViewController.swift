@@ -25,15 +25,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         manager.delegate = self
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            // realize that the authorization is only in use
-            mapView.showsUserLocation = true
-            // ask for current location, continually update
-            manager.startUpdatingLocation()
-            mapView.delegate = self
+         
+            
+            setup()
+            
         } else {
             manager.requestWhenInUseAuthorization()
         }
         
+       
+    }
+    
+    private func setup() {
+        // realize that the authorization is only in use
+        mapView.showsUserLocation = true
+        // ask for current location, continually update
+        manager.startUpdatingLocation()
+        mapView.delegate = self
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
             if let center = self.manager.location?.coordinate {
                 
@@ -45,6 +53,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 let annotation = PokemonAnnotation(coord: annoCord, pokemon: self.pokemon[Int(randomIndex)])
                 self.mapView.addAnnotation(annotation)
             }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            setup()
         }
     }
     
