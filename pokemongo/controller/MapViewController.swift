@@ -9,7 +9,7 @@
 import UIKit
 import MapKit   // necessary for having the MKMapView
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,21 +29,51 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             mapView.showsUserLocation = true
             // ask for current location, continually update
             manager.startUpdatingLocation()
+            mapView.delegate = self
         } else {
             manager.requestWhenInUseAuthorization()
         }
         
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
             if let center = self.manager.location?.coordinate {
-                let annotation = MKPointAnnotation()
+                
                 var annoCord = center
+                
                 annoCord.latitude += self.generateRandomCoordinates()
                 annoCord.longitude += self.generateRandomCoordinates()
-                annotation.coordinate = annoCord
+                let randomIndex = arc4random_uniform(UInt32(self.pokemon.count))
+                let annotation = PokemonAnnotation(coord: annoCord, pokemon: self.pokemon[Int(randomIndex)])
                 self.mapView.addAnnotation(annotation)
             }
         }
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            let anView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        if annotation is MKUserLocation {
+            anView.image = UIImage(named: "player")
+            var frame = anView.frame
+            frame.size.height = 50
+            frame.size.width = 50
+            anView.frame = frame
+            return anView
+        } else {
+            
+            if let pokeAnnotation = annotation as? PokemonAnnotation {
+                if let imageName = pokeAnnotation.pokemon.imageName {
+                    anView.image = UIImage(named: imageName)
+                    var frame = anView.frame
+                    frame.size.height = 50
+                    frame.size.width = 50
+                    anView.frame = frame
+                }
+
+            }
+            return anView
+        }
+    }
+    
 
     /*
      We'll make sure the app starts zoomed in to the current location of the phone
